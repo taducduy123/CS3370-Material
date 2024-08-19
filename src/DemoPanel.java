@@ -64,34 +64,36 @@ public class DemoPanel extends JPanel{
         setSolidNode(7, 11);
         setSolidNode(7, 12);
 
-        setSolidNode(3, 0);
-        setSolidNode(3, 1);
-        setSolidNode(3, 2);
-        setSolidNode(3, 3);
-        setSolidNode(3, 4);
-        setSolidNode(3, 5);
-        setSolidNode(3, 6);
 
-        setSolidNode(4, 0);
-        setSolidNode(5, 0);
-        setSolidNode(5, 0);
-        setSolidNode(6, 0);
-        setSolidNode(7, 0);
-        setSolidNode(8, 0);
-        setSolidNode(9, 0);
+        // //Test case for path not found
+        // setSolidNode(3, 0);
+        // setSolidNode(3, 1);
+        // setSolidNode(3, 2);
+        // setSolidNode(3, 3);
+        // setSolidNode(3, 4);
+        // setSolidNode(3, 5);
+        // setSolidNode(3, 6);
+
+        // setSolidNode(4, 0);
+        // setSolidNode(5, 0);
+        // setSolidNode(5, 0);
+        // setSolidNode(6, 0);
+        // setSolidNode(7, 0);
+        // setSolidNode(8, 0);
+        // setSolidNode(9, 0);
         
-        setSolidNode(9, 1);
-        setSolidNode(9, 2);
-        setSolidNode(9, 3);
-        setSolidNode(9, 4);
-        setSolidNode(9, 5);
-        setSolidNode(9, 6);
+        // setSolidNode(9, 1);
+        // setSolidNode(9, 2);
+        // setSolidNode(9, 3);
+        // setSolidNode(9, 4);
+        // setSolidNode(9, 5);
+        // setSolidNode(9, 6);
 
-        setSolidNode(8, 6);
-        setSolidNode(7, 6);
-        setSolidNode(6, 6);
-        setSolidNode(5, 6);
-        setSolidNode(4, 6);
+        // setSolidNode(8, 6);
+        // setSolidNode(7, 6);
+        // setSolidNode(6, 6);
+        // setSolidNode(5, 6);
+        // setSolidNode(4, 6);
         //SET COST ON NODES
         setCostOnNode();
     }
@@ -202,6 +204,7 @@ public class DemoPanel extends JPanel{
 
                 if(currentNode == goalNode){
                     goalReached = true;
+                    trackThePath();
                     return goalReached;
                 }
             }
@@ -211,8 +214,6 @@ public class DemoPanel extends JPanel{
         }
         return goalReached;
     }
-
-
 
 
     public boolean AutoSearch(){
@@ -270,17 +271,13 @@ public class DemoPanel extends JPanel{
 
                 if(currentNode == goalNode){
                     found = true;
+                    trackThePath();
                     return found;
                 }
             }
         }
         return found;
     }
-
-
-
-
-
 
 
     private void openNode(Node node){
@@ -293,6 +290,19 @@ public class DemoPanel extends JPanel{
         }
     }
 
+    
+    private void trackThePath(){
+        //Back track and Draw the best path
+        Node current = goalNode;
 
+        while(current != startNode){
+
+            current = current.parent;
+
+            if(current != startNode){
+                current.setAsPath();
+            }
+        }
+    }
 
 }

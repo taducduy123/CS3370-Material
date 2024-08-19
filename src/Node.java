@@ -65,7 +65,7 @@ public class Node extends JButton implements ActionListener{
     }
 
     public void setAsPath(){
-        setBackground(Color.green);
+        setBackground(Color.red);
         setForeground(Color.black);
     }
 

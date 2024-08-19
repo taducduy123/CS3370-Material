@@ -24,8 +24,8 @@ public class keyHandler implements KeyListener {
         int code = e.getKeyCode();
 
         if(code == KeyEvent.VK_ENTER){
-            //System.out.println(dp.search());
-            System.out.println(dp.AutoSearch());
+            System.out.println(dp.search());
+            //System.out.println(dp.AutoSearch());
             //System.out.println("You are pressing enter key");
         }
     }
